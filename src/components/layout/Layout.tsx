@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom"
 import Dashboard from "./Dashboard"
 import Footer from "./Footer"
 import Navbar from "./Navbar"
@@ -25,7 +26,7 @@ function Layout(){
             {/*  Content wrapper  */}
             <div className="content-wrapper">
               {/*  Content  */}
-              <Dashboard/>
+              <Outlet/>
               {/*  / Content  */}
 
               {/*  Footer  */}
