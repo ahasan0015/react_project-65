@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom"
 
 function Sidebar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () =>setIsOpen((prev) =>!prev);
   return (
     <>
       <input type="checkbox" id="sidebarMenu" className="d-none" />
@@ -23,7 +26,7 @@ function Sidebar() {
 
         <ul className="menu-inner py-1">
           {/*  Dashboard  */}
-          <NavLink to="/users" className={({isActive}) =>isActive? "menu-item active" : "menu-item"}>
+          <NavLink to="/" className={({isActive}) =>isActive? "menu-item active" : "menu-item"}>
             <li className="menu-link ">
               <i className="menu-icon tf-icons bx bx-home-circle"></i>
               <div data-i18n="Analytics">Dashboard</div>
@@ -42,16 +45,28 @@ function Sidebar() {
               <div data-i18n="Analytics">Products</div>
             </li>
           </NavLink>
+         <NavLink to="/sales" className={({isActive}) =>isActive? "menu-item active" : "menu-item"}>
+            <li className="menu-link ">
+              <i className='bx  bx-face-alt-3'  ></i> 
+              <div data-i18n="Analytics">Sales</div>
+            </li>
+          </NavLink>
+         <NavLink to="/roles" className={({isActive}) =>isActive? "menu-item active" : "menu-item"}>
+            <li className="menu-link ">
+              <i className='bx  bx-face-alt-3'  ></i> 
+              <div data-i18n="Analytics">Rolls</div>
+            </li>
+          </NavLink>
 
 
           {/*  Layouts  */}
            <li className="menu-item">
-              <a className="menu-link menu-toggle">
+              <span onClick={toggle} className="menu-link menu-toggle">
                 <i className="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">Layouts</div>
-              </a>
+              </span>
 
-              <ul className="menu-sub">
+              <ul className={`menu-sub ${isOpen ? 'open': 'closed'}`}>
                 <li className="menu-item">
                   <a href="layouts-without-menu.html" className="menu-link">
                     <div data-i18n="Without menu">Without menu</div>

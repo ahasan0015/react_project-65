@@ -14,7 +14,7 @@ const links = createBrowserRouter([
   {
     path: '/', element: <Layout />,
     children: [
-      { index: true, element: <Layout /> },
+      { index: true, element: <Dashboard /> },
       { path: '/dashboard', element: <Dashboard /> },
       { path: '/products', element: <Products/> },
       { path: '/sales', element: <h1>Sales</h1> },
