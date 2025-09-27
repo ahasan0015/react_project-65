@@ -9,6 +9,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './components/layout/Layout.tsx';
 import Dashboard from './components/pages/Dashboard.tsx';
 import Products from './components/pages/Products.tsx';
+import ManagePosts from './components/pages/post/ManagePosts.tsx';
+import CreatePosts from './components/pages/post/CreatePosts.tsx';
 
 const links = createBrowserRouter([
   {
@@ -20,6 +22,8 @@ const links = createBrowserRouter([
       { path: '/sales', element: <h1>Sales</h1> },
       { path: '/users', element: <h1>Users</h1> },
       { path: '/roles', element: <h1>Roles</h1> },
+      { path: '/posts', element: <ManagePosts/> },
+      { path: '/post/create', element: <CreatePosts/>},
     ]
   },
   { path: '/login', element: <h1> Login </h1> },

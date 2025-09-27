@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,6 +55,12 @@ function Sidebar() {
             <li className="menu-link ">
               <i className='bx  bx-face-alt-3'  ></i> 
               <div data-i18n="Analytics">Rolls</div>
+            </li>
+          </NavLink>
+          <NavLink to="/posts" className= "menu-item">
+            <li className="menu-link ">
+              <i className='bx  bx-face-alt-3'  ></i> 
+              <div data-i18n="Analytics">Posts</div>
             </li>
           </NavLink>
 
