@@ -77,7 +77,7 @@ function ManagePosts() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                {/* <tr>
                                     <td>1</td>
                                     <td>2</td>
                                     <td>test</td>
@@ -93,7 +93,7 @@ function ManagePosts() {
                                             
                                         </div>
                                     </td>
-                                </tr>
+                                </tr> */}
                                 {
                                     posts.map((item)=>
                                 <tr key={item.id}>
@@ -103,9 +103,12 @@ function ManagePosts() {
                                     <td>{item.body}</td>
                                     <td>
                                         <div className="d-flex gap-1">
-                                            <button className="btn btn-icon btn-outline-primary">
+                                            <Link to={`/post/${item.id}`} className="btn btn-icon btn-outline-primary">
+                                                <i className='bx  bx-book-open'  ></i> 
+                                            </Link>
+                                            <Link to={`/post/edit/${item.id}`} className="btn btn-icon btn-outline-danger">
                                                 <i className='bx  bx-edit'  ></i> 
-                                            </button>
+                                            </Link>
                                              <button className="btn btn-icon btn-outline-danger">
                                                 <i className='bx  bx-trash'  ></i> 
                                             </button>

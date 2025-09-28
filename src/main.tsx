@@ -11,6 +11,8 @@ import Dashboard from './components/pages/Dashboard.tsx';
 import Products from './components/pages/Products.tsx';
 import ManagePosts from './components/pages/post/ManagePosts.tsx';
 import CreatePosts from './components/pages/post/CreatePosts.tsx';
+import DetailsPage from './components/pages/post/DetailsPosts.tsx';
+import EditPost from './components/pages/post/EditPost.tsx';
 
 const links = createBrowserRouter([
   {
@@ -24,6 +26,8 @@ const links = createBrowserRouter([
       { path: '/roles', element: <h1>Roles</h1> },
       { path: '/posts', element: <ManagePosts/> },
       { path: '/post/create', element: <CreatePosts/>},
+      { path: '/post/:id', element: <DetailsPage/>},
+      { path: '/post/edit/:id', element: <EditPost/>},
     ]
   },
   { path: '/login', element: <h1> Login </h1> },
