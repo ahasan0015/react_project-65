@@ -17,16 +17,26 @@ function EditPost() {
         axios.get(`https://jsonplaceholder.typicode.com/posts/${queryId}`)
             .then((res) => {
                 // console.log(res);
+                // alert("Data Updated Successfully");
                 let data = res.data;
                 setPost(data);
             })
             // console.log(data);
 
             .catch((err) => console.log(err));
-    }, [queryId])
+    }, [queryId]);
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        console.log(post);
+        // console.log(post);
+        axios.put(`https://jsonplaceholder.typicode.com/posts/${queryId}`, post)
+            .then((res) => {
+                console.log(res);
+                alert("Data Updated Successfully"); 
+            })
+            // console.log(data);
+
+            .catch((err) => console.log(err));
     }
 
     return (

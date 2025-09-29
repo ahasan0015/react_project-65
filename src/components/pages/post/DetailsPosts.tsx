@@ -24,7 +24,7 @@ return (
     <>
         <div className="container-xxl flex-grow-1 container-p-y">
             <h4 className="fw-bold py-3 mb-4"><Link to={"/posts"}>Details</Link></h4>
-            <div className="card mt-3">
+            <div className="card p-2 mt-3">
                 {/* <h5 className="card-header">Post Details {params?.id} {params?.userid}</h5> */}
                 <p className="card-text"><b>ID:</b>{id}</p>
                 <p className="card-text"><b>User ID:</b>{userId}</p>

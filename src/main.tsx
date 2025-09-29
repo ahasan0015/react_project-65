@@ -13,6 +13,8 @@ import ManagePosts from './components/pages/post/ManagePosts.tsx';
 import CreatePosts from './components/pages/post/CreatePosts.tsx';
 import DetailsPage from './components/pages/post/DetailsPosts.tsx';
 import EditPost from './components/pages/post/EditPost.tsx';
+import ManageRoles from './components/pages/roles/ManageRoles.tsx';
+
 
 const links = createBrowserRouter([
   {
@@ -23,11 +25,12 @@ const links = createBrowserRouter([
       { path: '/products', element: <Products/> },
       { path: '/sales', element: <h1>Sales</h1> },
       { path: '/users', element: <h1>Users</h1> },
-      { path: '/roles', element: <h1>Roles</h1> },
       { path: '/posts', element: <ManagePosts/> },
       { path: '/post/create', element: <CreatePosts/>},
       { path: '/post/:id', element: <DetailsPage/>},
       { path: '/post/edit/:id', element: <EditPost/>},
+      { path: '/roles', element:<ManageRoles/> },
+      
     ]
   },
   { path: '/login', element: <h1> Login </h1> },
