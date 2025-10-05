@@ -14,6 +14,10 @@ import CreatePosts from './components/pages/post/CreatePosts.tsx';
 import DetailsPage from './components/pages/post/DetailsPosts.tsx';
 import EditPost from './components/pages/post/EditPost.tsx';
 import ManageRoles from './components/pages/roles/ManageRoles.tsx';
+import CreateRole from './components/pages/roles/CreateRoles.tsx';
+import ManageUsers from './components/pages/users/ManageUsers.tsx';
+import CreateUser from './components/pages/users/CreateUsers.tsx';
+
 
 
 const links = createBrowserRouter([
@@ -30,6 +34,10 @@ const links = createBrowserRouter([
       { path: '/post/:id', element: <DetailsPage/>},
       { path: '/post/edit/:id', element: <EditPost/>},
       { path: '/roles', element:<ManageRoles/> },
+      { path: '/create-roles', element:<CreateRole/> },
+      {path: 'manage-users', element: <ManageUsers/>},
+      {path: 'create-user', element: <CreateUser/>}
+      
       
     ]
   },

@@ -57,6 +57,12 @@ function Sidebar() {
               <div data-i18n="Analytics">Rolls</div>
             </li>
           </NavLink>
+          <NavLink to="/manage-users" className={({isActive}) =>isActive? "menu-item active" : "menu-item"}>
+            <li className="menu-link ">
+              <i className='bx  bx-face-alt-3'  ></i> 
+              <div data-i18n="Analytics">Users</div>
+            </li>
+          </NavLink>
           <NavLink to="/posts" className= "menu-item">
             <li className="menu-link ">
               <i className='bx  bx-face-alt-3'  ></i> 
