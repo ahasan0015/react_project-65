@@ -46,27 +46,28 @@ function ManageRoles() {
                 <th>Actions</th>
               </tr>
             </thead>
+
             <tbody>
-              {roles.map((item) =>
-              <tr key={item.id}>
-                <td>{item.id}</td>
-                <td>{item.name}</td>
-                <td className='d-flex g-1'>
-                    <Link to={`/post/details/${item.id}`} type='button' className='btn btn-icon btn-outline-primary'></Link>
-                    <span className='tf-icons bx bx-search'></span>
-                </td>
-                <td className='d-flex g-1'>
-                    <Link to={`/post/edit/${item.id}`} type='button' className='btn btn-icon btn-outline-primary'></Link>
-                    <span className='tf-icons bx bx-edit'></span>
-                </td>
-                <td className='d-flex g-1'>
-                    <Link to={`/post/details/${item.id}`} type='button' className='btn btn-icon btn-outline-primary'></Link>
-                    <span className='tf-icons bx bx-trash'></span>
-                </td>
+              {roles.map((item) => (
+                <tr key={item.id}>
+                  <td>{item.id}</td>
+                  <td>{item.name}</td>
+                  <td className="d-flex gap-1">
+                    <Link to={`/post/details/${item.id}`} type="button" className="btn btn-icon btn-outline-primary" aria-label={`View details of role ${item.name}`}>
+                      <span className="tf-icons bx bx-search"></span>
+                    </Link>
+                    <Link to={`/post/edit/${item.id}`} type="button" className="btn btn-icon btn-outline-primary" aria-label={`Edit role ${item.name}`}>
+                      <span className="tf-icons bx bx-edit"></span>
+                    </Link>
+                    <button type="button" className="btn btn-icon btn-outline-danger" aria-label={`Delete role ${item.name}`}>
+                      <span className="tf-icons bx bx-trash"></span>
+                    </button>
+                  </td>
+                </tr>
+              ))}
 
-              </tr>
 
-              )}
+
             </tbody>
           </table>
         </div>
