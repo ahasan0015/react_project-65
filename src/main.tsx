@@ -17,6 +17,7 @@ import ManageRoles from './components/pages/roles/ManageRoles.tsx';
 import CreateRole from './components/pages/roles/CreateRoles.tsx';
 import ManageUsers from './components/pages/users/ManageUsers.tsx';
 import CreateUser from './components/pages/users/CreateUsers.tsx';
+import Login from './components/pages/Login.tsx';
 
 
 
@@ -41,7 +42,7 @@ const links = createBrowserRouter([
       
     ]
   },
-  { path: '/login', element: <h1> Login </h1> },
+  { path: '/login', element: <Login/> },
   { path: '/pos', element: <h1>Pos</h1> },
   { path: '*', element: <h1 className='text-danger text-center my-5'>404 Not found  </h1> },
 
