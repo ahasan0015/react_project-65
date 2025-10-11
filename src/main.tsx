@@ -18,12 +18,13 @@ import CreateRole from './components/pages/roles/CreateRoles.tsx';
 import ManageUsers from './components/pages/users/ManageUsers.tsx';
 import CreateUser from './components/pages/users/CreateUsers.tsx';
 import Login from './components/pages/Login.tsx';
+import { redirectIfAuthenticated, requireAuth } from './utils/auth.ts';
 
 
 
 const links = createBrowserRouter([
   {
-    path: '/', element: <Layout />,
+    path: '/', element: <Layout />, loader: requireAuth,
     children: [
       { index: true, element: <Dashboard /> },
       { path: '/dashboard', element: <Dashboard /> },
@@ -42,7 +43,7 @@ const links = createBrowserRouter([
       
     ]
   },
-  { path: '/login', element: <Login/> },
+  { path: '/login', element: <Login/>,loader: redirectIfAuthenticated},
   { path: '/pos', element: <h1>Pos</h1> },
   { path: '*', element: <h1 className='text-danger text-center my-5'>404 Not found  </h1> },
 

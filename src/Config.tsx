@@ -8,9 +8,18 @@ const api = axios.create({
     baseURL: baseApiUrl,
     headers:{
         "Content-Type": "application/json",
-        "Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiQXNpYSIsImVtYWlsIjoiYXNpYUBleGFtcGxlLmNvbSIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc1OTk5MDc3OCwiZXhwIjoxNzYwNTk1NTc4fQ.o6qLi_H-QBuT3DKWtbO_1m1WgE9BJjrrkfsIty4h2do"
+        // "Authorization": `Bearer ${localStorage.getItem("bearer_token")}`
     }
     
 });
-
+//Add interceptor  to always attach the latest token
+api.interceptors.request.use(config =>{
+    const token = localStorage.getItem("bearer_token");
+    if(token){
+        config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+},
+(error)=>Promise.reject(error)
+);
 export default api;

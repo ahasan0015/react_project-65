@@ -1,7 +1,8 @@
-
+import React from "react";
 import { useState } from "react";
 import "../../assets/page-auth.css";
 import api from "../../Config";
+import { useNavigate } from "react-router-dom";
 
 
 type User = {
@@ -14,13 +15,24 @@ function Login() {
         email: "",
         password: ""
     });
+    // const redir = useNavigate();
+    const redirect = useNavigate();
     const handleSubmit =(e: React.FormEvent) =>{
         e.preventDefault();
         // alert("Form submitted successfully");
-        // console.log(user);\]
+        // console.log(user);
         api.post("login", user)
         .then((res) =>{
-            console.log(res.data);
+            // console.log(res.data);
+            if(res.data.error){
+                alert (res.data.error);
+            }else{
+                console.log(res.data);
+                alert (res.data.success);
+
+                localStorage.setItem("bearer_token", res.data.token);
+                redirect("/dashboard");
+            }
         })
         .catch((err) => {
             console.log(err);
