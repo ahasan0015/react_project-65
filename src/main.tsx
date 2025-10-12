@@ -3,8 +3,18 @@ import { createRoot } from 'react-dom/client'
 // import './index.css'
 // import App from './App.tsx'
 // import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+//Data Tables code
+import 'datatables.net-dt/css/dataTables.dataTables.css'; // include styles
+ 
+
+
+//Bootstrap and CSS
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './assets/custom.css'
+
+//React routing
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './components/layout/Layout.tsx';
 import Dashboard from './components/pages/Dashboard.tsx';

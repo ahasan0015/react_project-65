@@ -17,6 +17,7 @@ interface Post{
 }
 
 function ManagePosts() {
+    // const [posts,setPosts] = useState[]
     useEffect(() => {
         document.title = "Manage Posts"
         getData();

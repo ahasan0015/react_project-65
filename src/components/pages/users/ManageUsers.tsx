@@ -1,15 +1,19 @@
-import { useEffect, useState } from "react";
-import api from "../../../Config";
+import { useEffect, useRef, useState } from "react";
+import api, { baseUrl } from "../../../Config";
 import type { User } from "../../../interfaces/user.interface";
 import { Link } from "react-router-dom";
+import DataTable from "datatables.net-dt";
 
 function ManageUsers() {
   const [users, setUsers] = useState<User[]>([]);
   const [userId, setUserId] = useState<number | undefined>(0);
+  const tableRef = useRef(null);
+
   useEffect(() => {
     document.title = "Manage Users";
     getUsers();
   }, []);
+
   const getUsers = () => {
     api.get("users")
       .then((res) => {
@@ -20,6 +24,15 @@ function ManageUsers() {
         console.error(err);
       })
   }
+  useEffect(() => {
+    if (users.length > 0 && tableRef.current) {
+      //initialize Datatable
+      const dt = new DataTable(tableRef.current);
+      return () => {
+        dt.destroy();
+      }
+    };
+  }, [users]);
 
   function handleDelete(id: any) {
     // console.log(id + "confirm delete");
@@ -40,7 +53,7 @@ function ManageUsers() {
         <Link to="/create-user" className="btn btn-primary">Add New</Link>
         <div className="card mt-3">
           <div className="table-responsive">
-            <table className="table table-striped">
+            <table ref={tableRef} className="table table-striped">
               <thead>
                 <tr>
                   <th>ID</th>
@@ -55,7 +68,13 @@ function ManageUsers() {
                   users.map((user) => (
                     <tr key={user.id}>
                       <td>{user.id}</td>
-                      <td>{user.name}</td>
+                      <td>{user.name}
+                        <span className="ms-2 d-inline-block">
+                          <img src={baseUrl + user.photo} alt="" className="rounded-circle" style={{ width: "50px", height: "50px", objectFit: "cover" }} />
+                        </span>
+
+
+                      </td>
                       <td>{user.email}</td>
                       <td>{user.role}</td>
                       <td>
